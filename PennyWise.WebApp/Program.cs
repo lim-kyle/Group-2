@@ -19,8 +19,10 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 //Services 
 builder.Services.AddScoped<IExpenseService, ExpenseService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 //Repositories
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
 
 var app = builder.Build();

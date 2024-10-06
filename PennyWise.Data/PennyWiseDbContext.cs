@@ -13,6 +13,7 @@ public partial class PennyWiseDbContext:DbContext
 
     //insert dbset for models here
     public virtual DbSet<Expense> Expenses { get; set; }
+    public virtual DbSet<Category> Categories { get; set; }
 
     //insert rules / properties for your models here
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,7 +39,18 @@ public partial class PennyWiseDbContext:DbContext
             entity.Property(e => e.DateCreated)
                 .HasDefaultValueSql("GETDATE()"); 
         });
+        modelBuilder.Entity<Category>(entity =>
+        {
+            entity.ToTable("Category");
 
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Name)
+                .IsRequired()
+                .HasMaxLength(100);
+            entity.Property(e => e.DateCreated)
+                .HasDefaultValueSql("GETDATE()");
+        });
         OnModelCreatingPartial(modelBuilder);
     }
 
