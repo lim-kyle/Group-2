@@ -1,0 +1,59 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# ASP.NET
+wwwroot/lib/
+wwwroot/css/
+wwwroot/js/
+wwwroot/images/
+wwwroot/favicon.ico
+
+# Database files
+*.mdf
+*.ldf
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+!**/packages/build/*
+!**/packages/build/PackageName/*
+!**/packages/build/PackageName/**/*.targets
+
+# User-specific files
+*.sln.ide
+
+# Rider
+.idea/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Mac system files
+.DS_Store
+
+# NPM packages
+node_modules/
+
+# Log files
+*.log

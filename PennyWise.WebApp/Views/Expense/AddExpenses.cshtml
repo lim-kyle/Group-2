@@ -1,0 +1,37 @@
+﻿@model PennyWise.Data.Models.Expense
+
+@{
+    ViewData["Title"] = "Add Expense";
+}
+
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+    <form asp-action="AddExpenses" method="post">
+        <div class="mb-3">
+            <label for="ExpenseTitle" class="form-label">Expense Title</label>
+            <input type="text" class="form-control" id="ExpenseTitle" name="ExpenseTitle" required maxlength="100" />
+            <div class="invalid-feedback">Please provide a title for the expense.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="Category" class="form-label">Category</label>
+            <input type="text" class="form-control" id="Category" name="Category" required maxlength="50" />
+            <div class="invalid-feedback">Please provide a category for the expense.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="Amount" class="form-label">Amount</label>
+            <input type="number" class="form-control" id="Amount" name="Amount" required step="0.01" min="0" />
+            <div class="invalid-feedback">Please provide a valid amount.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="DateCreated" class="form-label">Date Created</label>
+            <input type="date" class="form-control" id="DateCreated" name="DateCreated" value="@DateTime.Now.ToString("yyyy-MM-dd")" required />
+            <div class="invalid-feedback">Please select a date.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Expense</button>
+        <a href="@Url.Action("Index", "Expense")" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
