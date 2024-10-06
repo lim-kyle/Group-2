@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PennyWise.Data.Models.Expense>
+
+@{
+    ViewData["Title"] = "Expense List";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>@ViewData["Title"]</h1>
+        <a href="@Url.Action("AddExpenses", "Expense")" class="btn btn-primary">
+            Add Expense
+        </a>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Date Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var expense in Model)
+                {
+                    <tr>
+                        <td>@expense.ExpenseTitle</td>
+                        <td>@expense.Category</td>
+                        <td>@expense.Amount.ToString("C")</td>
+                        <td>@expense.DateCreated.ToShortDateString()</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="text-center">No expenses found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
