@@ -1,0 +1,51 @@
+﻿@model PennyWise.Data.Models.Employee
+
+@{
+    ViewData["Title"] = "Add Employees";
+}
+
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+    <form asp-action="AddEmployees" method="post">
+        <div class="mb-3">
+            <label for="FirstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="FirstName" name="FirstName" required maxlength="100" />
+            <div class="invalid-feedback">Firstname is required</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="LastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="LastName" name="LastName" required maxlength="100" />
+            <div class="invalid-feedback">Lastname is required</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="Email" name="Email" required maxlength="100" />
+            <div class="invalid-feedback">Email is Required</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="Contact" class="form-label">Contact Number</label>
+            <input type="text" class="form-control" id="Contact" name="Contact" required maxlength="100" />
+            <div class="invalid-feedback">Contact Number is Required</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Employee</button>
+        <a href="@Url.Action("Index", "Employee")" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+@section scripts {
+    <script>
+        var errorMessage = '@TempData["ErrorMessage"]';
+        if (errorMessage) {
+            toastr.error(errorMessage);
+        }
+
+        var successMessage = '@TempData["SuccessMessage"]';
+        if (successMessage) {
+            toastr.success(successMessage);
+        }
+    </script>
+}

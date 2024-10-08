@@ -13,6 +13,7 @@ public partial class PennyWiseDbContext:DbContext
 
     //insert dbset for models here
     public virtual DbSet<Expense> Expenses { get; set; }
+    public virtual DbSet<Employee> Employees { get; set; }
 
     //insert rules / properties for your models here
     protected override void OnModelCreating(ModelBuilder modelBuilder)

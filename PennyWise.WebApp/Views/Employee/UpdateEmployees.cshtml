@@ -1,0 +1,40 @@
+﻿@model PennyWise.Data.Models.Employee
+
+@{
+    ViewData["Title"] = "Update Employee";
+}
+
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+    <form asp-action="UpdateEmployees" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label for="FirstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.FirstName" required maxlength="100" />
+            <div class="invalid-feedback">First Name is required</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="LastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="LastName" name="LastName" value="@Model.LastName" required maxlength="100" />
+            <div class="invalid-feedback">Last Name is required</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" required maxlength="100" />
+            <div class="invalid-feedback">Email is required</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="Contact" class="form-label">Contact Number</label>
+            <input type="text" class="form-control" id="Contact" name="Contact" value="@Model.Contact" required maxlength="100" />
+            <div class="invalid-feedback">Contact Number is required</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Employee</button>
+        <a href="@Url.Action("Index", "Employee")" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
