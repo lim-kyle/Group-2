@@ -1,0 +1,21 @@
+﻿@model PennyWise.Data.Models.Wish
+
+@{
+    ViewData["Title"] = "Add Wish";
+}
+
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+    <form asp-action="AddWish" method="post">
+        <div class="mb-3">
+            <label for="WishName" class="form-label">Wish</label>
+            <input type="text" class="form-control" id="WishName" name="WishName" maxlength="100" />
+            <span asp-validation-for="WishName" class="text-danger"></span>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary">Add Wish</button>
+        <a href="@Url.Action("Index", "Wish")" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
