@@ -15,6 +15,7 @@ public partial class PennyWiseDbContext:DbContext
     public virtual DbSet<Expense> Expenses { get; set; }
     public virtual DbSet<Employee> Employees { get; set; } 
     public virtual DbSet<Category> Categories { get; set; }
+    public virtual DbSet<Wish> Wishes { get; set; }
     //insert rules / properties for your models here
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -39,6 +40,7 @@ public partial class PennyWiseDbContext:DbContext
             entity.Property(e => e.DateCreated)
                 .HasDefaultValueSql("GETDATE()"); 
         });
+
         modelBuilder.Entity<Category>(entity =>
         {
             entity.ToTable("Category");
@@ -46,6 +48,19 @@ public partial class PennyWiseDbContext:DbContext
             entity.HasKey(e => e.Id);
 
             entity.Property(e => e.Name)
+                .IsRequired()
+                .HasMaxLength(100);
+            entity.Property(e => e.DateCreated)
+                .HasDefaultValueSql("GETDATE()");
+        });
+
+        modelBuilder.Entity<Wish>(entity =>
+        {
+            entity.ToTable("Wish");
+
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.WishName)
                 .IsRequired()
                 .HasMaxLength(100);
             entity.Property(e => e.DateCreated)

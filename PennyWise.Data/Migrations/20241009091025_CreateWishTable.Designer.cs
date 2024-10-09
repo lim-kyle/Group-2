@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PennyWise.Data;
 
@@ -11,9 +12,11 @@ using PennyWise.Data;
 namespace PennyWise.Data.Migrations
 {
     [DbContext(typeof(PennyWiseDbContext))]
-    partial class PennyWiseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241009091025_CreateWishTable")]
+    partial class CreateWishTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
