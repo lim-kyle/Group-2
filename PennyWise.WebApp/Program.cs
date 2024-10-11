@@ -22,12 +22,14 @@ builder.Services.AddScoped<IExpenseService, ExpenseService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IWishService, WishService>();
+builder.Services.AddScoped<IMobileService, MobileService>();
 
 //Repositories
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IWishRepository, WishRepository>();
+builder.Services.AddScoped<IMobileRepository, MobileRepository>();
 
 var app = builder.Build();
 

@@ -1,0 +1,31 @@
+﻿@model PennyWise.Data.Models.Mobile
+
+@{
+    ViewData["Title"] = "Add Mobile";
+}
+
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+    <form asp-action="AddMobile" method="post">
+        <div class="mb-3">
+            <label for="MobileBrand" class="form-label">Mobile Brand</label>
+            <input type="text" class="form-control" id="MobileBrand" name="Brand" maxlength="100" />
+            <span asp-validation-for="Brand" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="MobileModel" class="form-label">Mobile Model</label>
+            <input type="text" class="form-control" id="MobileModel" name="Model" maxlength="100" />
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="MobilePrice" class="form-label">Mobile Price</label>
+            <input type="number" step="0.01" class="form-control" id="MobilePrice" name="Price" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Mobile</button>
+        <a href="@Url.Action("Index", "Mobile")" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
