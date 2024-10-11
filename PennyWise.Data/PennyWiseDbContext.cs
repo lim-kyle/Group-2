@@ -16,7 +16,6 @@ public partial class PennyWiseDbContext:DbContext
     public virtual DbSet<Employee> Employees { get; set; } 
     public virtual DbSet<Category> Categories { get; set; }
     public virtual DbSet<Wish> Wishes { get; set; }
-
     //insert rules / properties for your models here
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
