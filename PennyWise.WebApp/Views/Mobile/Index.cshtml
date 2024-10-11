@@ -1,0 +1,39 @@
+﻿@model IEnumerable<PennyWise.Data.Models.Mobile>
+
+@{
+    ViewData["Title"] = "Mobile List";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>@ViewData["Title"]</h1>
+        <a href="@Url.Action("AddMobile", "Mobile")" class="btn btn-primary">
+            Add Mobile
+        </a>
+    </div>
+
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var mobile in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">@mobile.Brand @mobile.Model</h5>
+                            <p class="card-text">Price: $@mobile.Price</p>
+                            <a href="@Url.Action("UpdateMobile", "Mobile", new { id = mobile.Id })" class="btn btn-outline-primary">Edit</a>
+                            <a href="@Url.Action("DeleteMobile", "Mobile", new { id = mobile.Id })" class="btn btn-outline-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center">
+                <p class="lead">No mobiles found.</p>
+            </div>
+        }
+    </div>
+</div>
