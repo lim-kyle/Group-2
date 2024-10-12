@@ -17,9 +17,9 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         Database.SaveChanges();
     }
 
-    public void SaveChangesAsync(CancellationToken ct)
+    public async Task SaveChangesAsync(CancellationToken ct)
     {
-        Database.SaveChangesAsync(ct);
+        await Database.SaveChangesAsync(ct);
     }
 
     public void Dispose()
