@@ -1,32 +1,34 @@
 ﻿@model PennyWise.Data.Models.Expense
 
 @{
-    ViewData["Title"] = "Add Expense";
+    ViewData["Title"] = "Update Expense";
 }
 
 <div class="container mt-5">
     <h1 class="text-danger">@ViewData["Title"]</h1>
-    <form asp-action="AddExpenses" method="post">
+    <form asp-action="Edit" method="post">
+        <input type="hidden" name="Id" value="@Model.Id" />
+
         <div class="mb-3">
             <label for="ExpenseTitle" class="form-label">Expense Title</label>
-            <input type="text" class="form-control" id="ExpenseTitle" name="ExpenseTitle" required maxlength="100" />
+            <input type="text" class="form-control" id="ExpenseTitle" name="ExpenseTitle" value="@Model.ExpenseTitle" required maxlength="100" />
             <div class="invalid-feedback">Please provide a title for the expense.</div>
         </div>
 
         <div class="mb-3">
             <label for="Category" class="form-label">Category</label>
-            <input type="text" class="form-control" id="Category" name="Category" required maxlength="50" />
+            <input type="text" class="form-control" id="Category" name="Category" value="@Model.Category" required maxlength="50" />
             <div class="invalid-feedback">Please provide a category for the expense.</div>
         </div>
 
         <div class="mb-3">
             <label for="Amount" class="form-label">Amount</label>
-            <input type="number" class="form-control" id="Amount" name="Amount" required step="0.01" min="0" />
+            <input type="number" class="form-control" id="Amount" name="Amount" value="@Model.Amount" required step="0.01" min="0" />
             <div class="invalid-feedback">Please provide a valid amount.</div>
         </div>
 
         <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-danger me-2">Add Expense</button>
+            <button type="submit" class="btn btn-danger me-2">Update Expense</button>
             <a href="@Url.Action("Index", "Expense")" class="btn btn-secondary">Cancel</a>
         </div>
     </form>

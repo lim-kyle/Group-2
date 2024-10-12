@@ -8,5 +8,5 @@ public interface IUnitOfWork
 
     void SaveChanges();
 
-    void SaveChangesAsync(CancellationToken ct);
+    Task SaveChangesAsync(CancellationToken ct);
 }
