@@ -12,6 +12,7 @@ public class EmployeeRepository : BaseRepository, IEmployeeRepository
 
     public void AddEmployee(Employee employee)
     {
+        employee.DateCreated = DateTime.Now;
         this.GetDbSet<Employee>().Add(employee);
         UnitOfWork.SaveChanges();
     }
